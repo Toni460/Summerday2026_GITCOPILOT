@@ -36,6 +36,7 @@ while True:
     
     # Press 'q' to exit
     if cv2.waitKey(1) == ord('q'):
+        cv2.imwrite('photo.jpg', frame)
         break
 
 # Release the camera and close windows
