@@ -15,8 +15,11 @@ while True:
         print("Can't receive frame (stream end?). Exiting ...")
         break
 
-    # Display the frame
-    cv2.imshow('Laptop Camera', frame)
+    # Apply a simple filter (grayscale)
+    filtered_frame = cv2.cvtColor(frame, cv2.COLOR_BGR2GRAY)
+
+    # Display the filtered frame
+    cv2.imshow('Laptop Camera', filtered_frame)
     
     # Press 'q' to exit
     if cv2.waitKey(1) == ord('q'):
