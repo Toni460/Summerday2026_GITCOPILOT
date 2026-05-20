@@ -34,10 +34,17 @@ while True:
     # Display the frame
     #cv2.imshow('Laptop Camera', frame)
     
-    # Press 'q' to exit
-    if cv2.waitKey(1) == ord('q'):
-        cv2.imwrite('photo.jpg', frame)
+    # Check for key presses
+    key = cv2.waitKey(1) & 0xFF
+    if key != 255:
+        print(f"Key pressed: {key}")
+
+    # Press 'q' to exit and save a photo
+    if key == ord('q'):
         break
+    elif key == ord('s'):
+        cv2.imwrite('photo.jpg', frame)
+        print("Saved photo.jpg")
 
 # Release the camera and close windows
 cap.release()
